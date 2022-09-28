@@ -17,9 +17,9 @@ function GameSelectionComp({game, setGame}: Props) {
                     setGame(selectedGame);
                 }}>
                     <option value="DEFAULT">***välj sport***</option>
-                    <option value="hockey">Hockey</option>
-                    <option value="fotboll">Fotboll</option>
-                    <option value="slant">Singla Slant</option>
+                    <option value="Hockey">Hockey</option>
+                    <option value="Fotboll">Fotboll</option>
+                    <option value="Singla Slant">Singla Slant</option>
                 </select>
         </form>
     );

@@ -1,36 +1,32 @@
 import './ScoreComponent.scss';
 
-import { Game } from '../models/Results';
+import { Results } from '../models/Results';
 
 interface Props {
-    teamOneResult: number;
-    setTeamOneResult: (teamOneResult: number) => void;
-    teamTwoResult: number;
-    setTeamTwoResult: (teamTwoResult: number) => void;
     playerOneName: string;
     playerTwoName: string;
-    newGame: Game[];
-    setNewGame: (newGame: Game[]) => void;
+    setPlayerOneResult: (playerOneResult: string) => void;
+    setPlayerTwoResult: (playerTwoResult: string) => void;
 }
 
-function ScoreComponent({teamOneResult, setTeamOneResult, teamTwoResult, setTeamTwoResult, playerOneName, playerTwoName, newGame, setNewGame}: Props) {
+function ScoreComponent({playerOneName, playerTwoName, setPlayerOneResult, setPlayerTwoResult}: Props) {
+
     return (
         <section className='score-container'>
             <section className='score-wrapper'>
                 <p>Vinnare:</p>
                 <select className='winning-team-selector' name="winning-team" id="winning-team" onChange={(event) => {
-                    // const result: number = parseInt(event.target.value);
-                    // setTeamOneResult(result);
-                    // if (teamOneResult > teamTwoResult) {
-                    //     // Använd result-variabeln istället, för att jämföra
-                    //     console.log('Lag ett vann!');  
-                    // } else {
-                    //     console.log('Lag två vann!');
-                    // }
+                    
+                    console.log(event.target.value);
+
+                    if (playerOneName == event.target.value ) {
+                        setPlayerOneResult('won');
+                        setPlayerTwoResult('lost');
+                    } else if (playerTwoName == event.target.value) {
+                        setPlayerTwoResult('won');
+                        setPlayerOneResult('lost');
+                    }
                 }}>
-                    {/* <option value="DEFAULT">***välj vinnarlag***</option>
-                    <option value="one">1</option>
-                    <option value="two">2</option> */}
                     <option value="DEFAULT">***välj vinnare***</option>
                     <option value={playerOneName}>{playerOneName}</option>
                     <option value={playerTwoName}>{playerTwoName}</option>

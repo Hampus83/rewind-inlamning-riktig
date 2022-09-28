@@ -1,30 +1,29 @@
 import './TeamsContainer.scss';
 
-import { Player } from '../models/Results';
-import { Game } from '../models/Results';
+import { Results } from '../models/Results';
 
 import PlayerSelectionComp from './selectors/PlayerSelectionComp';
 import ScoreComponent from './ScoreComponent';
 
+import { useEffect } from 'react';
+
 interface Props {
     noOfPlayers: number;
-    // players: Player[];
-    // setPlayers: (players: Player[]) => void;
-    teamOneResult: number;
-    setTeamOneResult: (teamOneResult: number) => void;
-    teamTwoResult: number;
-    setTeamTwoResult: (teamTwoResult: number) => void;
-    team: string;
-    setTeam: (team: string) => void;
-    newGame: Game[];
-    setNewGame: (newGame: Game[]) => void;
+    setNoOfPlayers: (noOfPlayers: number) => void;
     playerOneName: string;
     setPlayerOneName: (playerOneName: string) => void;
     playerTwoName: string;
     setPlayerTwoName: (playerTwoName: string) => void;
     game: string;
-    results: Game[];
-    setResults: (results: Game[]) => void;
+    setGame: (game: string) => void;
+    results: Results[];
+    setResults: (results: Results[]) => void;
+    date: string;
+    setDate: (date: string) => void;
+    playerOneResult: string;
+    setPlayerOneResult: (playerOneResult: string) => void;
+    playerTwoResult: string;
+    setPlayerTwoResult: (playerTwoResult: string) => void;
 }
 
 interface PlayerNumber {
@@ -32,7 +31,7 @@ interface PlayerNumber {
     number: number
 }
 
-function TeamsContainer({noOfPlayers, teamOneResult, setTeamOneResult, teamTwoResult, setTeamTwoResult, team, setTeam, newGame, setNewGame, playerOneName, setPlayerOneName, playerTwoName, setPlayerTwoName, game, results, setResults }: Props) {
+function TeamsContainer({noOfPlayers, setNoOfPlayers, playerOneName, setPlayerOneName, playerTwoName, setPlayerTwoName, game, setGame, results, setResults, date, setDate, playerOneResult, setPlayerOneResult, playerTwoResult, setPlayerTwoResult}: Props) {
 
     let id = results.length + 1;
 
@@ -44,43 +43,40 @@ function TeamsContainer({noOfPlayers, teamOneResult, setTeamOneResult, teamTwoRe
                 number: 0,
             }
         }
-
         return temp;
     }
 
     let arrayOfPlayers = generatePlayers(noOfPlayers);
 
-    function updateWinStatus() {
-        // if
-        let teamOneWon = true;
-        // loopa igenom alla spelare i lag 1
-        // 
-    }
-
     function handleClick() {
-        console.log('KLICK');
-        console.log(newGame);
         
-        let newGameCopy = {
+        let newGame: Results = { // MÅSTE TA REDA PÅ SYNTAXEN FÖR ATT ANVÄNDA "game-interface TILL DENNA!!!"
             game: game,
-            date: '', // fixa datum!
+            date: date,
             playerOneName: playerOneName,
-            playerOneResult: '', // proppa hit result
+            playerOneResult: playerOneResult, 
             playerTwoName: playerTwoName,
-            playerTwoResult: '', //proppa hit result
+            playerTwoResult: playerTwoResult, 
             id: id
         }
 
-        console.log(newGameCopy);
-
-        results.push(newGameCopy);
-
+        console.log(newGame);
         console.log(results);
         
+        results.push(newGame);
+
+        setGame('');
+        setNoOfPlayers(0);
+        setDate('');
+        setPlayerOneName('');
+        setPlayerTwoName('');
+        setPlayerOneResult('');
+        setPlayerTwoResult('');          
     }
 
-    // console.log(players);
-    console.log(noOfPlayers);
+    useEffect(() => {
+        setResults(results);
+    }, []);
     
         return (
             <>
@@ -88,19 +84,16 @@ function TeamsContainer({noOfPlayers, teamOneResult, setTeamOneResult, teamTwoRe
                     <section className="team-container">
                         {arrayOfPlayers.map((temp, i) => (
                         <PlayerSelectionComp
-                            // players={players} setPlayers={setPlayers}
-                            team={team} setTeam={setTeam}
-                            newGame={newGame} setNewGame={setNewGame}
                             playerOneName={playerOneName} setPlayerOneName={setPlayerOneName}
                             playerTwoName={playerTwoName} setPlayerTwoName={setPlayerTwoName}
                             key={i}
+                            playerNumber={i + 1}
                         />
                         ))}
                         <ScoreComponent 
-                            teamOneResult={teamOneResult} setTeamOneResult={setTeamOneResult}
-                            teamTwoResult={teamTwoResult} setTeamTwoResult={setTeamTwoResult}
                             playerOneName={playerOneName} playerTwoName={playerTwoName}
-                            newGame={newGame} setNewGame={setNewGame}
+                            setPlayerOneResult={setPlayerOneResult}
+                            setPlayerTwoResult={setPlayerTwoResult}
                         />
                     </section>
                 </div>
