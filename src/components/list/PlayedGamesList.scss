@@ -5,23 +5,37 @@
     flex-direction: column;
     align-items: center;
 
-    h1 {
-        margin-bottom: 1em;
-        font-size: 3em;
+    .title {
+        font-size: 2.5em;
         line-height: 1em;
+        text-decoration: underline;
     }
 
-    button {
-        @extend %button;
-        margin-top: 3em;
-    }
-
-    .select-wrapper {
+    .filter-wrapper {
         display: flex;
-        flex-direction: column;
+        align-items: center;
+        padding: 2em;
+        gap: 2em;
+        flex-wrap: wrap;
 
-        label {
-            margin-top: 2em;
+        .select-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+    
+            label {
+                margin-top: 2em;
+            }
+
+            button {
+                @extend %button;
+                margin-top: 3em;
+            }
+        }
+
+        .message-container {
+            font-weight: 700;
+            width: 20em;
         }
     }
 }

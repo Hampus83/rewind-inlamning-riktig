@@ -15,9 +15,12 @@
 }
 
 @media screen and (max-width: 500px) {
-    .result-wrapper p {
-        margin: 0.3em;
-        font-size: 14px;
-        line-height: 40px;
+    .result-wrapper {
+      
+        p {
+            margin: 0.3em;
+            font-size: 14px;
+            line-height: 40px;
+        }
     }
 }

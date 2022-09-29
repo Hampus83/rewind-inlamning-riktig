@@ -80,7 +80,7 @@ function TeamsContainer({noOfPlayers, setNoOfPlayers, playerOneName, setPlayerOn
     
         return (
             <>
-                <div className="wrapper">
+                <div className="team-wrapper">
                     <section className="team-container">
                         {arrayOfPlayers.map((temp, i) => (
                         <PlayerSelectionComp
