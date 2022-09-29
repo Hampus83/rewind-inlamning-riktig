@@ -142,7 +142,7 @@ function App() {
         playerTwoResult={playerTwoResult} setPlayerTwoResult={setPlayerTwoResult}
       />
       <PlayedGamesList 
-        results={results} 
+        results={results} setResults={setResults}
       />
     </div>
   );

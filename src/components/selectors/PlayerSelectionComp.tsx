@@ -14,10 +14,10 @@ interface Props {
 
 function PlayerSelectionComp({playerOneName, setPlayerOneName, playerTwoName, setPlayerTwoName, playerNumber}: Props) {
 
-    useEffect(() => {
-        console.log('P1:', playerOneName);
-        console.log('P2:', playerTwoName);
-    });
+    // useEffect(() => {
+    //     console.log('P1:', playerOneName);
+    //     console.log('P2:', playerTwoName);
+    // });
 
     return (
         <form className='playernames-form'>
