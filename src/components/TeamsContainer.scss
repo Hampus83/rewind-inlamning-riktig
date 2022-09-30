@@ -1,16 +1,24 @@
 @use '../styles/base';
 @use '../styles/variables';
 
-.team-wrapper {
+.teamContainer-wrapper {
     @extend %flex-center;
-}
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 
-.button-wrapper {
-    @extend %flex-center;
-
-    button {
-        @extend %button;
-        width: 20%;
+    .team-wrapper {
+        @extend %flex-center;
+        align-items: center;
+    }
+    
+    .button-wrapper {
+        @extend %flex-center;
+        align-items: center;
+    
+        button {
+            @extend %button;
+            width: 15em;
+        }
     }
 }
 
@@ -21,5 +29,10 @@ input, select {
     border-radius: 0.3em; 
     border: none;
     box-shadow: 0 0 4px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 200;
 }
 

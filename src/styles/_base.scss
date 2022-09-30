@@ -1,7 +1,6 @@
 @use './variables';
 
 %button {
-    width: 10%;
     background-color: variables.$btn-bgr;
     color: variables.$light-text;
     padding: 1em 5em;
@@ -9,10 +8,10 @@
     border-radius: 0.2em;
     box-shadow: 2px 2px 4px gray;
     font-weight: 600;
-    margin-bottom: 2em;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 10em;
 
     &:hover {
         cursor: pointer;
