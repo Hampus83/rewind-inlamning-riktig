@@ -1,16 +1,25 @@
+@use '../../styles/base';
+
 .result-wrapper {
-    display: flex;
-    justify-content: space-around;
-    border: 1px solid black;
-    margin: 0.2em;
+    @extend %flex-center;
+    border-top: 1px solid black;
+
+    &:nth-child(odd) {
+        background-color: rgb(215, 227, 255);
+    }
 
     p {
         margin: 2em;
+        font-size: 14px;
+    }
+
+    .bold {
+        font-weight: 600;
     }
 
     .team-result-divider {
-        margin-right: 0;
-        margin-left: 0;
+        margin-right: -1.5em;
+        margin-left: -1.5em;
     }
 }
 
@@ -19,8 +28,13 @@
       
         p {
             margin: 0.3em;
-            font-size: 14px;
-            line-height: 40px;
+            font-size: 0.85em;
+            line-height: 3em;
+        }
+
+        .team-result-divider {
+            margin-right: 0;
+            margin-left: 0;
         }
     }
 }

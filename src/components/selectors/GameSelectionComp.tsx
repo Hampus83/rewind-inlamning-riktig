@@ -15,7 +15,7 @@ function GameSelectionComp({game, setGame, noOfPlayers, setNoOfPlayers, date, se
 
     return (
         <div className='game-wrapper'>
-            <section className="game-container">
+            <section className="container">
                 <label htmlFor="games">Typ av sport/spel</label>
                 <select value={game} name="games" id="games" onChange={(event) => {
                     const selectedGame = event.target.value;
@@ -27,7 +27,7 @@ function GameSelectionComp({game, setGame, noOfPlayers, setNoOfPlayers, date, se
                     <option value="Singla slant">Singla slant</option>
                 </select>
             </section>
-            <section className="players-container">
+            <section className="container">
                 <label htmlFor="game">Antal spelare</label>
                 <select value={noOfPlayers} name="players" id="players" onChange={(event) => {
 
@@ -40,7 +40,7 @@ function GameSelectionComp({game, setGame, noOfPlayers, setNoOfPlayers, date, se
                     <option value="2">2</option>
                 </select>
             </section>
-            <section className="date-container">
+            <section className="container">
                 <label htmlFor="">Tid för spel</label>
                 <input value={date} type="date" onChange={(event) => {
 

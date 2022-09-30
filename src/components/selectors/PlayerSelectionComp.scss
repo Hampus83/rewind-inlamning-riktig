@@ -1,13 +1,6 @@
-.player-selection-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 2em;
+@use '../../styles/base';
 
-    .player-name-container {
-        margin-top: 2em;
-        display: flex;
-        flex-direction: column;
-    }
+.player-name-container {
+    @extend %flex-column;
+    margin-top: 2em;
 }

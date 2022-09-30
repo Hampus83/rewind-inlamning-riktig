@@ -38,8 +38,8 @@ function PlayedGamesList({results, setResults}: Props) {
         filteredByGame = sortedResults.filter(result => 
             result.game == chosenGame  
         );
-        filteredResults = filteredByGame;
-
+        filteredResults = filteredByGame; 
+           
     } else {
         filteredByGame = sortedResults;
     }
@@ -72,7 +72,7 @@ function PlayedGamesList({results, setResults}: Props) {
                 return result;
             }
 
-            console.log('vinster:', result);
+            // console.log('vinster:', result);
         });
     }
 
@@ -84,11 +84,9 @@ function PlayedGamesList({results, setResults}: Props) {
         playerInfo = `Spelare ${chosenPlayer} har vunnit ${chosenPlayerGamesWon.length} matcher av de 10 senast spelade`;
     }
     
-    console.log('filteredresults', filteredResults);
-    
     return (
         <div className='list-wrapper'>
-            <h1 className='title'>Spelade matcher</h1>
+            {/* <h1 className='title'>Spelade matcher</h1> */}
             <div className="filter-wrapper">
                 <section className="select-wrapper">
                     <label htmlFor="">Filtrera efter spelare:</label>

@@ -1,7 +1,19 @@
+@use '../styles/base';
+@use '../styles/variables';
+
 .header {
-    background-color: rgb(233, 107, 10);
+    @extend %flex-center;
+    align-items: center;
+    background-color: variables.$blue-bgr;
+    color: variables.$light-text;
+    height: 15vh;
+    box-shadow: 0 4px 4px gray;
+    position: sticky;
+    top: 0;
+}
+
+@media screen and (max-width: 500px) {
+   .header {
     height: 10vh;
-    display: flex;
-    justify-content: center;
-    box-shadow: 2px 4px 4px;
+   } 
 }

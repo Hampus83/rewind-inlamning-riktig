@@ -10,11 +10,11 @@ function PlayedGame({result}: Props) {
 
     return (
         <div className='result-wrapper'>
-            <p>{result.game}</p>
+            <p className='bold'>{result.game}</p>
             <p>{result.date}</p>
-            <p>{result.playerOneName}</p>
-            <p className='team-result-divider'>-</p>
-            <p>{result.playerTwoName}</p>
+            <p className='bold'>{result.playerOneName}</p>
+            <p className='team-result-divider'>vs.</p>
+            <p className='bold'>{result.playerTwoName}</p>
             <p>{result.playerOneResult}</p>
             <p className='team-result-divider'>-</p>
             <p>{result.playerTwoResult}</p>

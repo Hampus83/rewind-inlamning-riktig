@@ -1,25 +1,14 @@
+@use '../../styles/base';
+
 .game-wrapper {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     padding: 2em;
 
-    .game-container {
-        margin-top: 2em;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .players-container {
-        margin-top: 2em;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .date-container {
-        margin-top: 2em;
-        display: flex;
-        flex-direction: column;
+    .container {
+        @extend %flex-column;
+        padding-top: 2em;
     }
 }

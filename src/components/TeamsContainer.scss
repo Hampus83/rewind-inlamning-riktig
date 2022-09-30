@@ -1,39 +1,25 @@
-.team-wrapper {
-    display: flex;
-    justify-content: space-around;
+@use '../styles/base';
+@use '../styles/variables';
 
-    .team-container {
-        display: flex;
-        flex-direction: column;
-    }
+.team-wrapper {
+    @extend %flex-center;
 }
 
 .button-wrapper {
-    display: flex;
-    justify-content: center;
+    @extend %flex-center;
 
     button {
+        @extend %button;
         width: 20%;
-        background-color: rgb(45, 204, 132);
-        padding: 1em 5em;
-        border: none;
-        box-shadow: 2px 2px 4px;
-        font-weight: 600;
-        margin-bottom: 5em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        &:hover {
-            cursor: pointer;
-        }
-
-        &:active {
-            background-color: rgb(29, 147, 94);
-            color: rgba(0, 0, 0, 0.500);
-            box-shadow: 1px 1px 2px;
-        }
     }
 }
 
-// Över är samma scss som i GameForm!!!
+input, select {
+    outline: none;
+    font-size: 16px;
+    padding: 0.5em;
+    border-radius: 0.3em; 
+    border: none;
+    box-shadow: 0 0 4px;
+}
+

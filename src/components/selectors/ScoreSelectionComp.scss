@@ -1,10 +1,6 @@
-.score-container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 2em;
+@use '../../styles/base';
 
-    label {
-        align-self: flex-start;
-    }
+.score-container {
+    @extend %flex-column;
+    padding: 2em;
 }

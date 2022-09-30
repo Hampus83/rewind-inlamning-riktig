@@ -1,9 +1,13 @@
+@use './variables';
+
 %button {
     width: 10%;
-    background-color: rgb(45, 204, 132);
+    background-color: variables.$btn-bgr;
+    color: variables.$light-text;
     padding: 1em 5em;
     border: none;
-    box-shadow: 2px 2px 4px;
+    border-radius: 0.2em;
+    box-shadow: 2px 2px 4px gray;
     font-weight: 600;
     margin-bottom: 2em;
     display: flex;
@@ -15,8 +19,18 @@
     }
 
     &:active {
-        background-color: rgb(29, 147, 94);
+        background-color: variables.$btn-active;
         color: rgba(0, 0, 0, 0.500);
-        box-shadow: 1px 1px 2px;
+        box-shadow: variables.$box-shadow;
     }
+}
+
+%flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+%flex-center {
+    display: flex;
+    justify-content: center;
 }
