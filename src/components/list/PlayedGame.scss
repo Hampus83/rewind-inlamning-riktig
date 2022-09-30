@@ -2,7 +2,7 @@
 
 .result-wrapper {
     @extend %flex-center;
-    border-top: 1px solid black;
+    border-top: 0.05em solid black;
 
     &:nth-child(odd) {
         background-color: rgb(215, 227, 255);

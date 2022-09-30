@@ -75,7 +75,6 @@ function TeamsContainer({noOfPlayers, setNoOfPlayers, playerOneName, setPlayerOn
         setPlayerOneResult('');
         setPlayerTwoResult(''); 
         setChosenName('');  
-
     }
 
     useEffect(() => {

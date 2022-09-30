@@ -26,7 +26,7 @@ function ScoreSelectionComp({playerOneName, playerTwoName, setPlayerOneResult, s
                         setPlayerOneResult('lost');
                     }
                 }}>
-                    <option value="">***välj vinnare***</option>
+                    <option hidden={true} value="">***välj vinnare***</option>
                     <option value={playerOneName}>{playerOneName}</option>
                     <option value={playerTwoName}>{playerTwoName}</option>
                 </select>

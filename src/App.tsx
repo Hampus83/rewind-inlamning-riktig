@@ -140,7 +140,7 @@ function App() {
         chosenName={chosenName} setChosenName={setChosenName}
       />
       <PlayedGamesList 
-        results={results} setResults={setResults}
+        results={results}
       />
     </div>
   );

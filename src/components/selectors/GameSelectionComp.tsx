@@ -1,7 +1,5 @@
 import './GameSelectionComp.scss';
 
-import { useState } from 'react';
-
 interface Props {
     game: string;
     setGame: (game: string) => void;
@@ -35,7 +33,7 @@ function GameSelectionComp({game, setGame, noOfPlayers, setNoOfPlayers, date, se
                     
                     setNoOfPlayers(playersNumber);
                 }}>
-                    <option value="">***antal spelare***</option>
+                    <option hidden={true} value="">***antal spelare***</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                 </select>

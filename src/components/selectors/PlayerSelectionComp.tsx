@@ -8,7 +8,7 @@ interface Props {
     playerNumber: number;  
 }
 
-function PlayerSelectionComp({playerOneName, setPlayerOneName, playerTwoName, setPlayerTwoName, playerNumber}: Props) {
+function PlayerSelectionComp({setPlayerOneName, setPlayerTwoName, playerNumber}: Props) {
 
     return (
         <div className='player-selection-wrapper'>
@@ -25,7 +25,7 @@ function PlayerSelectionComp({playerOneName, setPlayerOneName, playerTwoName, se
                     }
 
                 }}>
-                    <option value="">***välj namn***</option>
+                    <option hidden={true} value="">***välj namn***</option>
                     <option value="Hampus">Hampus</option>
                     <option value="Helena">Helena</option>
                     <option value="Elin">Elin</option>

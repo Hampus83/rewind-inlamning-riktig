@@ -3,14 +3,13 @@ import './PlayedGamesList.scss';
 import { Results } from '../../models/Results';
 
 import PlayedGame from './PlayedGame';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 interface Props {
     results: Results[];
-    setResults: (results: Results[]) => void;
 }
 
-function PlayedGamesList({results, setResults}: Props) {
+function PlayedGamesList({results}: Props) {
 
     const [chosenPlayer, setChosenPlayer] = useState<string>('');
     const [chosenGame, setChosenGame] = useState<string>('');
@@ -71,8 +70,6 @@ function PlayedGamesList({results, setResults}: Props) {
             } else if (chosenPlayer === result.playerTwoName && result.playerTwoResult === "won") {
                 return result;
             }
-
-            // console.log('vinster:', result);
         });
     }
 
@@ -86,7 +83,6 @@ function PlayedGamesList({results, setResults}: Props) {
     
     return (
         <div className='list-wrapper'>
-            {/* <h1 className='title'>Spelade matcher</h1> */}
             <div className="filter-wrapper">
                 <section className="select-wrapper">
                     <label htmlFor="">Filtrera efter spelare:</label>
@@ -95,7 +91,7 @@ function PlayedGamesList({results, setResults}: Props) {
                         setChosenPlayer(event.target.value);
 
                     }}>
-                        <option value="">***välj namn***</option>
+                        <option hidden={true} value="">***välj namn***</option>
                         <option value="Hampus">Hampus</option>
                         <option value="Helena">Helena</option>
                         <option value="Elin">Elin</option>
@@ -107,7 +103,7 @@ function PlayedGamesList({results, setResults}: Props) {
                         setChosenGame(event.target.value);
 
                     }}>
-                        <option value="">***välj spel/sport***</option>
+                        <option hidden={true} value="">***välj spel/sport***</option>
                         <option value="Hockey">Hockey</option>
                         <option value="Fotboll">Fotboll</option>
                         <option value="Singla slant">Singla slant</option>
