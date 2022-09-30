@@ -3,7 +3,7 @@ import './TeamsContainer.scss';
 import { Results } from '../models/Results';
 
 import PlayerSelectionComp from './selectors/PlayerSelectionComp';
-import ScoreComponent from './ScoreComponent';
+import ScoreSelectionComp from './selectors/ScoreSelectionComp';
 
 import { useEffect } from 'react';
 
@@ -24,6 +24,8 @@ interface Props {
     setPlayerOneResult: (playerOneResult: string) => void;
     playerTwoResult: string;
     setPlayerTwoResult: (playerTwoResult: string) => void;
+    chosenName: string;
+    setChosenName: (chosenName:string) => void;
 }
 
 interface PlayerNumber {
@@ -31,7 +33,7 @@ interface PlayerNumber {
     number: number
 }
 
-function TeamsContainer({noOfPlayers, setNoOfPlayers, playerOneName, setPlayerOneName, playerTwoName, setPlayerTwoName, game, setGame, results, setResults, date, setDate, playerOneResult, setPlayerOneResult, playerTwoResult, setPlayerTwoResult}: Props) {
+function TeamsContainer({noOfPlayers, setNoOfPlayers, playerOneName, setPlayerOneName, playerTwoName, setPlayerTwoName, game, setGame, results, setResults, date, setDate, playerOneResult, setPlayerOneResult, playerTwoResult, setPlayerTwoResult, chosenName, setChosenName}: Props) {
 
     let id = results.length + 1;
 
@@ -71,7 +73,8 @@ function TeamsContainer({noOfPlayers, setNoOfPlayers, playerOneName, setPlayerOn
         setPlayerOneName('');
         setPlayerTwoName('');
         setPlayerOneResult('');
-        setPlayerTwoResult('');          
+        setPlayerTwoResult(''); 
+        setChosenName('');  
     }
 
     useEffect(() => {
@@ -90,10 +93,11 @@ function TeamsContainer({noOfPlayers, setNoOfPlayers, playerOneName, setPlayerOn
                             playerNumber={i + 1}
                         />
                         ))}
-                        <ScoreComponent 
+                        <ScoreSelectionComp 
                             playerOneName={playerOneName} playerTwoName={playerTwoName}
                             setPlayerOneResult={setPlayerOneResult}
                             setPlayerTwoResult={setPlayerTwoResult}
+                            chosenName={chosenName} setChosenName={setChosenName}
                         />
                     </section>
                 </div>

@@ -1,7 +1,6 @@
 import './App.css';
 import Header from './components/Header';
 import GameSelectionComp from './components/selectors/GameSelectionComp'
-import NoOfPlayersComp from './components/selectors/NoOfPlayersComp';
 import TeamsContainer from './components/TeamsContainer';
 import PlayedGamesList from './components/list/PlayedGamesList';
 
@@ -42,9 +41,9 @@ function App() {
     {
         game: 'Hockey',
         date: '2022-07-20',
-        playerOneName: 'Elin',
+        playerOneName: 'Helena',
         playerOneResult: 'won',
-        playerTwoName: 'Helena',
+        playerTwoName: 'Elin',
         playerTwoResult: 'lost',
         id: 4
     },
@@ -98,8 +97,8 @@ function App() {
         date: '2022-04-24',
         playerOneName: 'Elin',
         playerOneResult: 'lost',
-        playerTwoName: '',
-        playerTwoResult: '',
+        playerTwoName: 'Agnes',
+        playerTwoResult: 'won',
         id: 10
     },
     {
@@ -107,29 +106,27 @@ function App() {
         date: '2022-05-29',
         playerOneName: 'Hampus',
         playerOneResult: 'won',
-        playerTwoName: '',
-        playerTwoResult: '',
+        playerTwoName: 'Agnes',
+        playerTwoResult: 'lost',
         id: 11
     },
   ]);
   const [game, setGame] = useState<string>('');
-  const [noOfPlayers, setNoOfPlayers] = useState<number>(1);
+  const [noOfPlayers, setNoOfPlayers] = useState<number>(0);
   const [playerOneName, setPlayerOneName] = useState<string>('');
   const [playerOneResult, setPlayerOneResult] = useState<string>('');
   const [playerTwoName, setPlayerTwoName] = useState<string>('');
   const [playerTwoResult, setPlayerTwoResult] = useState<string>('');
   const [date, setDate] = useState<string>('');
+  const [chosenName, setChosenName] = useState<string>('');
 
   return (
     <div className="App">
       <Header />
       <GameSelectionComp 
         game={game} setGame={setGame}
-      />
-      <NoOfPlayersComp 
-        game={game} 
-        setNoOfPlayers={setNoOfPlayers} 
-        setDate={setDate}
+        noOfPlayers={noOfPlayers} setNoOfPlayers={setNoOfPlayers} 
+        date={date} setDate={setDate}
       />
       <TeamsContainer 
         noOfPlayers={noOfPlayers} setNoOfPlayers={setNoOfPlayers}
@@ -140,6 +137,7 @@ function App() {
         date={date} setDate={setDate}
         playerOneResult={playerOneResult} setPlayerOneResult={setPlayerOneResult}
         playerTwoResult={playerTwoResult} setPlayerTwoResult={setPlayerTwoResult}
+        chosenName={chosenName} setChosenName={setChosenName}
       />
       <PlayedGamesList 
         results={results} setResults={setResults}

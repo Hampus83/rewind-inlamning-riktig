@@ -1,3 +1,13 @@
-.winning-team {
-    margin-top: 2em;
+.player-selection-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2em;
+
+    .player-name-container {
+        margin-top: 2em;
+        display: flex;
+        flex-direction: column;
+    }
 }

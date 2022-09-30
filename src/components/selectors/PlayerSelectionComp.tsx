@@ -1,9 +1,5 @@
 import './PlayerSelectionComp.scss';
 
-import { Results } from '../../models/Results';
-
-import { useEffect } from 'react';
-
 interface Props {
     playerOneName: string;
     setPlayerOneName: (playerOneName: string) => void;
@@ -14,14 +10,10 @@ interface Props {
 
 function PlayerSelectionComp({playerOneName, setPlayerOneName, playerTwoName, setPlayerTwoName, playerNumber}: Props) {
 
-    // useEffect(() => {
-    //     console.log('P1:', playerOneName);
-    //     console.log('P2:', playerTwoName);
-    // });
-
     return (
-        <form className='playernames-form'>
-            <label htmlFor="player-names">Namn:</label>
+        <div className='player-selection-wrapper'>
+            <section className="player-name-container">
+                <label htmlFor="player-names">Namn:</label>
                 <select className='winning-team' name={`player${playerNumber}`} onChange={(event) => {
 
                     const selectedName = event.target.value;
@@ -39,7 +31,8 @@ function PlayerSelectionComp({playerOneName, setPlayerOneName, playerTwoName, se
                     <option value="Elin">Elin</option>
                     <option value="Agnes">Agnes</option>
                 </select>
-        </form> 
+            </section>
+        </div> 
     );
 }
 

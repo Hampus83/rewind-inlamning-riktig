@@ -59,9 +59,32 @@ function PlayedGamesList({results, setResults}: Props) {
         }
     });
 
-    const playerInfo = `Spelare ****** har vunnit X matcher av de Y senast spelade`;
+    let chosenPlayerGamesWon: Results[] = [];
+
+    function calcTotalGamesWon() {
+
+        const lastTenGames = filteredResults.slice(0, 10);
+
+        chosenPlayerGamesWon = lastTenGames.filter((result) => {
+            if (chosenPlayer === result.playerOneName && result.playerOneResult === "won") {
+                return result;
+            } else if (chosenPlayer === result.playerTwoName && result.playerTwoResult === "won") {
+                return result;
+            }
+
+            console.log('vinster:', result);
+        });
+    }
+
+    calcTotalGamesWon();
+
+    let playerInfo: string = '';
+
+    if (chosenPlayer) {
+        playerInfo = `Spelare ${chosenPlayer} har vunnit ${chosenPlayerGamesWon.length} matcher av de 10 senast spelade`;
+    }
     
-    console.log(filteredResults);
+    console.log('filteredresults', filteredResults);
     
     return (
         <div className='list-wrapper'>
@@ -69,7 +92,7 @@ function PlayedGamesList({results, setResults}: Props) {
             <div className="filter-wrapper">
                 <section className="select-wrapper">
                     <label htmlFor="">Filtrera efter spelare:</label>
-                    <select name="player-sort" id="player-sort" onChange={(event) => {
+                    <select value={chosenPlayer} name="player-sort" id="player-sort" onChange={(event) => {
 
                         setChosenPlayer(event.target.value);
 
@@ -81,7 +104,7 @@ function PlayedGamesList({results, setResults}: Props) {
                         <option value="Agnes">Agnes</option>
                     </select>
                     <label htmlFor="">Filtrera efter spel/sport:</label>
-                    <select name="game-sort" id="game-sort" onChange={(event) => {
+                    <select value={chosenGame} name="game-sort" id="game-sort" onChange={(event) => {
 
                         setChosenGame(event.target.value);
 

@@ -1,22 +1,21 @@
-import './ScoreComponent.scss';
-
-import { Results } from '../models/Results';
+import './ScoreSelectionComp.scss';
 
 interface Props {
     playerOneName: string;
     playerTwoName: string;
     setPlayerOneResult: (playerOneResult: string) => void;
     setPlayerTwoResult: (playerTwoResult: string) => void;
+    chosenName: string;
+    setChosenName: (chosenName:string) => void;
 }
 
-function ScoreComponent({playerOneName, playerTwoName, setPlayerOneResult, setPlayerTwoResult}: Props) {
-
+function ScoreSelectionComp({playerOneName, playerTwoName, setPlayerOneResult, setPlayerTwoResult, chosenName, setChosenName}: Props) {
     return (
         <section className='score-container'>
-            <section className='score-wrapper'>
-                <p>Vinnare:</p>
-                <select className='winning-team-selector' name="winning-team" id="winning-team" onChange={(event) => {
+                <label htmlFor="">Vinnare:</label>
+                <select value={chosenName} className='winning-team-selector' name="winning-team" id="winning-team" onChange={(event) => {
                     
+                    setChosenName(event.target.value)
                     console.log(event.target.value);
 
                     if (playerOneName == event.target.value ) {
@@ -27,13 +26,12 @@ function ScoreComponent({playerOneName, playerTwoName, setPlayerOneResult, setPl
                         setPlayerOneResult('lost');
                     }
                 }}>
-                    <option value="DEFAULT">***välj vinnare***</option>
+                    <option value="">***välj vinnare***</option>
                     <option value={playerOneName}>{playerOneName}</option>
                     <option value={playerTwoName}>{playerTwoName}</option>
                 </select>
             </section>
-        </section>
     );
 }
 
-export default ScoreComponent;
+export default ScoreSelectionComp;
