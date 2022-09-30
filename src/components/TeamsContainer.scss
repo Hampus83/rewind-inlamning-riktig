@@ -1,26 +1,23 @@
 @use '../styles/base';
 @use '../styles/variables';
 
-.teamContainer-wrapper {
-    @extend %flex-center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
 
-    .team-wrapper {
-        @extend %flex-center;
-        align-items: center;
-    }
-    
-    .button-wrapper {
-        @extend %flex-center;
-        align-items: center;
-    
-        button {
-            @extend %button;
-            width: 15em;
-        }
+
+.team-wrapper {
+    @extend %flex-center;
+    align-items: center;
+}
+
+.button-wrapper {
+    @extend %flex-center;
+    align-items: center;
+
+    button {
+        @extend %button;
+        width: 15em;
     }
 }
+
 
 input, select {
     outline: none;

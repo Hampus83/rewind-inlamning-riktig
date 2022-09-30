@@ -21,7 +21,7 @@ function GameSelectionComp({game, setGame, noOfPlayers, setNoOfPlayers, date, se
                     const selectedGame = event.target.value;
                     setGame(selectedGame);
                 }}>
-                    <option value="">***välj sport***</option>
+                    <option hidden={true} value="">***välj sport***</option>
                     <option value="Hockey">Hockey</option>
                     <option value="Fotboll">Fotboll</option>
                     <option value="Singla slant">Singla slant</option>

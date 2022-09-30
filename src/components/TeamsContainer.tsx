@@ -75,6 +75,7 @@ function TeamsContainer({noOfPlayers, setNoOfPlayers, playerOneName, setPlayerOn
         setPlayerOneResult('');
         setPlayerTwoResult(''); 
         setChosenName('');  
+
     }
 
     useEffect(() => {
@@ -82,7 +83,7 @@ function TeamsContainer({noOfPlayers, setNoOfPlayers, playerOneName, setPlayerOn
     }, []);
     
         return (
-            <section className='teamContainer-wrapper'>
+            <>
                 <div className="team-wrapper">
                     <section className="team-container">
                         {arrayOfPlayers.map((temp, i) => (
@@ -104,7 +105,7 @@ function TeamsContainer({noOfPlayers, setNoOfPlayers, playerOneName, setPlayerOn
                 <div className="button-wrapper">
                     <button onClick={ handleClick }>LÄGG TILL RESULTAT</button>
                 </div>
-            </section>
+            </>
         ); 
 }
 
